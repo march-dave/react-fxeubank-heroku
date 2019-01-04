@@ -11,7 +11,7 @@ A simple deployment ready webpack-react application for heroku
 1. Run `webpack -p`
 2. Run `node server.js`, and visit **localhost:8080**, voila your code is ready for heroku now.
 
-## Heroku https://dave-fxrate.herokuapp.com/ https://git.heroku.com/dave-fxrate.git
+## Heroku https://fxeubank.herokuapp.com/
 
 
 ## Create MongoDB to Heroku
