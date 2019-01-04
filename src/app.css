@@ -1,0 +1,21 @@
+body {
+    /* background: wheat; */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.left {
+    padding: 10px;
+    margin: 10px;
+}
+
+.right {
+    padding: 10px;
+    margin: 10px;
+}
+
+.container {
+    top: 0%;
+    padding: 10px;
+    margin: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
