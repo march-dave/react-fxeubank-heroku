@@ -5,7 +5,7 @@ A simple deployment ready webpack-react application for heroku
 
 1.  Clone this repo
 2.  Run `yarn install`
-3.  Run `yarn dev run`, **localhost:8080** will open up in your default browser
+3.  Run `yarn dev`, **localhost:8080** will open up in your default browser
 
 ## Verify production code
 1. Run `webpack -p`

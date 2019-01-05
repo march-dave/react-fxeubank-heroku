@@ -8,11 +8,7 @@ const options = {
 };
 
 class RateCharts extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.handleValue = this.handleValue.bind(this);
-  }
+  state = {};
 
   componentDidMount() {
     const { symbol } = this.props;
@@ -24,14 +20,14 @@ class RateCharts extends Component {
     });
   }
 
-  handleValue() {
+  handleValue = () => {
     const { symbol } = this.props;
     let result = [["Dates", symbol]];
     this.props.newRate.map(c => result.push([c[0], c[1][symbol]]));
     this.setState({
       data: result
     });
-  }
+  };
 
   render() {
     const { data } = this.state;

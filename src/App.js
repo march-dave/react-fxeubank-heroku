@@ -1,16 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 import axios from "axios";
-import {
-  Table,
-  Button,
-  Container,
-  Row,
-  Col,
-  Input,
-  Badge,
-  Alert
-} from "reactstrap";
+import { Table, Button, Row, Col, Input } from "reactstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort, faChartLine } from "@fortawesome/free-solid-svg-icons";
@@ -30,32 +21,22 @@ library.add(faSort, faChartLine);
 // };
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      base: "",
-      lasttimeupdate_date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-      start_at: moment().format("YYYY-MM-DD HH:mm:ss"),
-      latest_rates: [],
-      rates: [],
-      target_symbol: "",
-      keyword: "",
-      can_currency: "",
-      can_rate: "",
-      sorting_assending: true,
-      sortingdate_assending: true,
-      chart_symbol: "CAD"
-    };
-    this.handleFxRate = this.handleFxRate.bind(this);
-    this.handleFxRateLast30Days = this.handleFxRateLast30Days.bind(this);
-    this.handleSaveFxRate = this.handleSaveFxRate.bind(this);
-    this.handleFilteredDate = this.handleFilteredDate.bind(this);
-    this.handleSort = this.handleSort.bind(this);
-    this.handleDateSort = this.handleDateSort.bind(this);
-    this.handleCharthd = this.handleCharthd.bind(this);
-  }
+  state = {
+    base: "",
+    lasttimeupdate_date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+    start_at: moment().format("YYYY-MM-DD HH:mm:ss"),
+    latest_rates: [],
+    rates: [],
+    target_symbol: "",
+    keyword: "",
+    can_currency: "",
+    can_rate: "",
+    sorting_assending: true,
+    sortingdate_assending: true,
+    chart_symbol: "CAD"
+  };
 
-  handleCharthd(e) {
+  handleCharthd = e => {
     console.log(e.target);
     const symbol = e.target.getAttribute("data-item");
     console.log(symbol);
@@ -63,9 +44,9 @@ class App extends Component {
     this.setState({
       chart_symbol: symbol
     });
-  }
+  };
 
-  handleSort() {
+  handleSort = () => {
     let sorting_arr = [];
     this.state.sorting_assending === true
       ? (sorting_arr = this.state.latest_rates.sort((a, b) => {
@@ -79,21 +60,21 @@ class App extends Component {
       latest_rates: sorting_arr,
       sorting_assending: !this.state.sorting_assending
     });
-  }
+  };
 
-  handleDateSort() {
+  handleDateSort = () => {
     this.setState({
       sortingdate_assending: !this.state.sortingdate_assending
     });
-  }
+  };
 
-  handleFilteredDate(e) {
+  handleFilteredDate = e => {
     this.setState({
       keyword: e.target.value
     });
-  }
+  };
 
-  componentDidMount() {
+  componentDidMount = () => {
     const url = `https://api.exchangeratesapi.io/latest?base=USD&symbols=GBP,EUR,AUD,CAD`;
 
     fetch(url)
@@ -121,9 +102,9 @@ class App extends Component {
           can_rate: res_rate
         });
       });
-  }
+  };
 
-  handleFxRate() {
+  handleFxRate = () => {
     const url = `https://api.exchangeratesapi.io/latest?base=USD&symbols=GBP,EUR,AUD,CAD`;
 
     fetch(url)
@@ -151,7 +132,7 @@ class App extends Component {
           can_rate: res_rate
         });
       });
-  }
+  };
 
   // handleDateFilter(e) {
   //   e.preventDefault();
@@ -187,7 +168,7 @@ class App extends Component {
   //     });
   // }
 
-  handleFxRateLast30Days(e) {
+  handleFxRateLast30Days = e => {
     console.log("aaa : " + e.target.name);
 
     const start_at = moment()
@@ -226,9 +207,9 @@ class App extends Component {
           target_symbol: target_symbol
         });
       });
-  }
+  };
 
-  handleSaveFxRate() {
+  handleSaveFxRate = () => {
     axios
       .post("https://fx-rate.herokuapp.com/api/fxrate", {
         base: "USD",
@@ -239,7 +220,7 @@ class App extends Component {
       .then(response => {
         console.log(response.data);
       });
-  }
+  };
 
   render() {
     const {
