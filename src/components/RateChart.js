@@ -8,6 +8,10 @@ const options = {
 };
 
 class RateCharts extends Component {
+  static defaultProps = {
+    data: []
+  };
+
   state = {};
 
   componentDidMount() {
