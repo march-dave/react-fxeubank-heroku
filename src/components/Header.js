@@ -2,6 +2,7 @@ import React from "react";
 import { Alert } from "reactstrap";
 
 const Header = props => {
+  const {basecurrency, currency, rate, lasttimeupdate_date} = this.props;
   return (
     <h4>
       <Alert color="secondary">
@@ -11,5 +12,12 @@ const Header = props => {
     </h4>
   );
 };
+
+Header.defaultProps = {
+  basecurrency: "",
+  currency: "",
+  rate: "",
+  lasttimeupdate_date: "",
+}
 
 export default Header;
