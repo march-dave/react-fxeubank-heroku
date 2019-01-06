@@ -16,3 +16,12 @@ A simple deployment ready webpack-react application for heroku
 
 ## Create MongoDB to Heroku
 heroku addons:create mongolab
+
+## What is redux
+Redux is a predictable state container for JavaScript apps. That means Redux can be used with vanilla JavaScript or frameworks/libraries such as Angular and Vue. Redux is mainly a framework for issuing state updates and responses to actions.
+
+## What is an action
+Actions are payloads of information that send data from your application to your store. They are the only source of information for the store.
+
+##What is a reducer?
+In technical terms, the reducer is a pure function that receives two parameters (the current state and the action), and you return a new immutable state depending on the action.
