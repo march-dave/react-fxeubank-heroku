@@ -2,7 +2,7 @@ import React from "react";
 import { Alert } from "reactstrap";
 
 const Header = props => {
-  const {basecurrency, currency, rate, lasttimeupdate_date} = this.props;
+  const {basecurrency, currency, rate, lasttimeupdate_date} = props;
   return (
     <h4>
       <Alert color="secondary">
