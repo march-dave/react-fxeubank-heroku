@@ -14,10 +14,32 @@ class RateCharts extends Component {
 
   state = {};
 
+  constructor(props) {
+    super(props);
+
+    const { newRate, symbol } = this.props;
+
+    console.log("DidMount Start");
+    console.log(symbol);
+    console.log("DidMount End");
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(nextProps);
+    console.log(nextState);
+
+    return nextProps != nextState;
+  }
+
   componentDidMount() {
-    const { symbol } = this.props;
+    const { newRate, symbol } = this.props;
+
+    console.log("DidMount Start");
+    console.log(symbol);
+    console.log("DidMount End");
+
     let result = [["Dates", symbol]];
-    this.props.newRate.map(c => result.push([c[0], c[1][symbol]]));
+    newRate.map(c => result.push([c[0], c[1][symbol]]));
 
     this.setState({
       data: result
@@ -25,9 +47,10 @@ class RateCharts extends Component {
   }
 
   handleValue = () => {
-    const { symbol } = this.props;
+    const { newRate, symbol } = this.props;
     let result = [["Dates", symbol]];
-    this.props.newRate.map(c => result.push([c[0], c[1][symbol]]));
+    newRate.map(c => result.push([c[0], c[1][symbol]]));
+
     this.setState({
       data: result
     });
@@ -35,6 +58,10 @@ class RateCharts extends Component {
 
   render() {
     const { data } = this.state;
+
+    {
+      console.log(data);
+    }
 
     return (
       <div>
