@@ -44,6 +44,10 @@ class App extends Component {
     this.setState({
       chart_symbol: symbol
     });
+
+    console.log("handleCharthd Start");
+    console.log(this.state.rates);
+    console.log("handleCharthd End");
   };
 
   handleSort = () => {
@@ -211,7 +215,7 @@ class App extends Component {
 
   handleSaveFxRate = () => {
     axios
-      .post("https://fx-rate.herokuapp.com/api/fxrate", {
+      .post("https://fxeubank.herokuapp.com/api/fxrate", {
         base: "USD",
         rates: this.state.rates,
         end_at: this.state.end_at,
