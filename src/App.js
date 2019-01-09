@@ -138,40 +138,6 @@ class App extends Component {
       });
   };
 
-  // handleDateFilter(e) {
-  //   e.preventDefault();
-
-  //   console.log(this.state.start_at);
-
-  //   const start_at = "2018-11-17";
-  //   const target_symbol = this.state.target_symbol;
-
-  //   // https://api.exchangeratesapi.io/latest?base=USD&symbols=GBP,EUR,AUD,CAD
-
-  //   console.log("url: " + url);
-
-  //   fetch(url)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log(data);
-
-  //       let result = [];
-  //       for (let i in data.rates) {
-  //         result.push([i, data.rates[i]]);
-  //       }
-
-  //       console.log(result);
-
-  //       this.setState({
-  //         base: data.base,
-  //         end_at: moment(data.end_at).format("YYYY-MM-DD HH:mm:ss"),
-  //         start_at: moment(data.start_at).format("YYYY-MM-DD HH:mm:ss"),
-  //         rates: result,
-  //         target_symbol: target_symbol
-  //       });
-  //     });
-  // }
-
   handleFxRateLast30Days = e => {
     console.log("aaa : " + e.target.name);
 
@@ -183,10 +149,10 @@ class App extends Component {
       e.target.name === "" ? "GBP,EUR,AUD,CAD" : e.target.name;
 
     console.log("target_symbol: " + target_symbol);
+    
+    // https://api.exchangeratesapi.io/history?start_at=2018-11-28&end_at=2018-12-28&base=USD&symbols=GBP,EUR,AUD,CAD
 
     const url = `https://api.exchangeratesapi.io/history?start_at=${start_at}&end_at=${end_at}&base=USD&symbols=${target_symbol}`;
-
-    // https://api.exchangeratesapi.io/history?start_at=2018-11-28&end_at=2018-12-28&base=USD&symbols=GBP,EUR,AUD,CAD
 
     console.log("url " + url);
 
